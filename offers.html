@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vintage Crown | Offers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.png">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Georgia", serif;
+}
+body{ background:#f5f1ea; }
+.dashboard{ display:flex; min-height:100vh; }
+
+/* SIDEBAR */
+.sidebar{
+  width:250px;
+  background:#1c1a17;
+  color:#fff;
+  padding:30px 20px;
+}
+.logo{
+  text-align:center;
+  margin-bottom:30px;
+  letter-spacing:2px;
+}
+.menu li{
+  list-style:none;
+  padding:12px;
+  margin-bottom:8px;
+  border-radius:5px;
+  cursor:pointer;
+}
+.menu li:hover,.menu .active{
+  background:#c9a24d;
+  color:#000;
+}
+.logout{
+  margin-top:30px;
+  background:#8b0000;
+}
+
+/* MAIN */
+.main{ flex:1; padding:30px; }
+
+/* HEADER */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.topbar h1{ font-size:28px; }
+
+/* TABLE */
+.offer-table{
+  margin-top:30px;
+  background:#fff;
+  border-radius:8px;
+  overflow:hidden;
+  border:2px solid #d4b36b;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th,td{
+  padding:14px;
+  text-align:left;
+}
+th{
+  background:#1c1a17;
+  color:#fff;
+}
+tr:nth-child(even){
+  background:#f7f3ea;
+}
+.status{
+  padding:5px 10px;
+  border-radius:4px;
+  font-size:14px;
+}
+.pending{ background:#ffcc00; }
+.accepted{ background:#4caf50; color:#fff; }
+.rejected{ background:#b22222; color:#fff; }
+
+.btn{
+  padding:6px 10px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:14px;
+}
+.accept{ background:#1c1a17; color:#fff; }
+.reject{ background:#8b0000; color:#fff; }
+.view{ background:#c9a24d; }
+.btn:hover{ opacity:0.85; }
+.sidebar li a {
+  color: #fff;
+}
+.navbar-brand img {
+  width: 200px;
+}
+/* ===== Responsive Fix ===== */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .menu li {
+    text-align: center;
+  }
+
+  .tables {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .topbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .card p {
+    font-size: 20px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .navbar-brand img {
+    width: 150px;
+  }
+}
+@media (max-width: 1024px) {
+
+  .table-box {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-box table {
+    min-width: 700px;
+    border-collapse: collapse;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+ <!-- Sidebar -->
+  <aside class="sidebar">
+    <a class="navbar-brand" href="index.html"> <img src="img/vin-logo.png" alt="logo"> </a>
+
+    <ul class="menu">
+      <li><a href="dashboard.html">📊 Dashboard</a></li>
+      <li><a href="my-products.html">🛍 My Products</a></li>
+      <li><a href="orders.html">📦 Orders</a></li>
+      <li><a href="earnings.html">💰 Earnings</a></li>
+      <li><a href="my-bid.html">🔨 My Bids</a></li>
+      <li><a href="wishlist.html">⭐ Wishlist</a></li>
+      <li class="active"><a href="offers.html">⚙ Offers</a></li>
+      <li class="logout"><a href="logout.html">🚪 Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="topbar">
+      <h1>Offers</h1>
+    </div>
+
+    <!-- OFFERS TABLE -->
+    <div class="offer-table">
+      <div class="table-box">
+  <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Offered By</th>
+            <th>Offer Price</th>
+            <th>Your Price</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>Antique Wall Clock</td>
+            <td>Collector_92</td>
+            <td>₹9,200</td>
+            <td>₹10,000</td>
+            <td><span class="status pending">Pending</span></td>
+            <td>
+              <button class="btn accept">Accept</button>
+              <button class="btn reject">Reject</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Vintage Radio (1955)</td>
+            <td>RetroFan</td>
+            <td>₹14,500</td>
+            <td>₹15,000</td>
+            <td><span class="status accepted">Accepted</span></td>
+            <td>
+              <button class="btn view">View Order</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Royal Wooden Chair</td>
+            <td>AntiqueHub</td>
+            <td>₹18,000</td>
+            <td>₹20,000</td>
+            <td><span class="status rejected">Rejected</span></td>
+            <td>
+              <button class="btn view">View</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vintage Crown | My Bids</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.png">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Georgia", serif;
+}
+body{ background:#f5f1ea; }
+.dashboard{ display:flex; min-height:100vh; }
+
+/* SIDEBAR */
+.sidebar{
+  width:250px;
+  background:#1c1a17;
+  color:#fff;
+  padding:30px 20px;
+}
+.logo{
+  text-align:center;
+  margin-bottom:30px;
+  letter-spacing:2px;
+}
+.menu li{
+  list-style:none;
+  padding:12px;
+  margin-bottom:8px;
+  border-radius:5px;
+  cursor:pointer;
+}
+.menu li:hover,.menu .active{
+  background:#c9a24d;
+  color:#000;
+}
+.logout{
+  margin-top:30px;
+  background:#8b0000;
+}
+
+/* MAIN */
+.main{ flex:1; padding:30px; }
+
+/* HEADER */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.topbar h1{ font-size:28px; }
+
+/* TABLE */
+.table-box{
+  margin-top:30px;
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
+  border:2px solid #d4b36b;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th,td{
+  padding:12px;
+  text-align:left;
+  border-bottom:1px solid #ddd;
+}
+th{
+  background:#f0e6d2;
+}
+.status{
+  padding:4px 10px;
+  border-radius:12px;
+  font-size:12px;
+  color:#fff;
+}
+.winning{ background:green; }
+.outbid{ background:#b22222; }
+.active{ background:#c9a24d; color:#000; }
+
+/* BUTTON */
+.view-btn{
+  padding:6px 12px;
+  background:#1c1a17;
+  color:#fff;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+}
+.view-btn:hover{
+  background:#c9a24d;
+  color:#000;
+}
+.sidebar li a {
+  color: #fff;
+}
+.navbar-brand img {
+  width: 200px;
+}
+/* ===== Responsive Fix ===== */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .menu li {
+    text-align: center;
+  }
+
+  .tables {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .topbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .card p {
+    font-size: 20px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .navbar-brand img {
+    width: 150px;
+  }
+}
+@media (max-width: 1024px) {
+
+  .table-box {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-box table {
+    min-width: 700px;
+    border-collapse: collapse;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+ <!-- Sidebar -->
+  <aside class="sidebar">
+   <a class="navbar-brand" href="index.html"> <img src="img/vin-logo.png" alt="logo"> </a>
+
+    <ul class="menu">
+      <li><a href="dashboard.html">📊 Dashboard</a></li>
+      <li><a href="my-products.html">🛍 My Products</a></li>
+      <li><a href="orders.html">📦 Orders</a></li>
+      <li><a href="earnings.html">💰 Earnings</a></li>
+      <li class="active"><a href="my-bid.html">🔨 My Bids</a></li>
+      <li><a href="wishlist.html">⭐ Wishlist</a></li>
+      <li><a href="offers.html">⚙ Offers</a></li>
+      <li class="logout"><a href="logout.html">🚪 Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <div class="topbar">
+      <h1>My Bids</h1>
+    </div>
+
+    <!-- BIDS TABLE -->
+    <section class="table-box">
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Your Bid</th>
+          <th>Highest Bid</th>
+          <th>Auction Ends</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+
+        <tr>
+          <td>Antique Brass Clock</td>
+          <td>₹12,000</td>
+          <td>₹12,000</td>
+          <td>25 Jan 2026</td>
+          <td><span class="status winning">Winning</span></td>
+          <td><button class="view-btn">View</button></td>
+        </tr>
+
+        <tr>
+          <td>Vintage Camera (1960)</td>
+          <td>₹18,500</td>
+          <td>₹19,200</td>
+          <td>23 Jan 2026</td>
+          <td><span class="status outbid">Outbid</span></td>
+          <td><button class="view-btn">Bid Again</button></td>
+        </tr>
+
+        <tr>
+          <td>Royal Wooden Chair</td>
+          <td>₹22,000</td>
+          <td>₹22,000</td>
+          <td>28 Jan 2026</td>
+          <td><span class="status active">Active</span></td>
+          <td><button class="view-btn">View</button></td>
+        </tr>
+
+      </table>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

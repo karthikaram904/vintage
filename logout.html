@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vintage Crown | Logout</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Georgia", serif;
+}
+body{
+  min-height:100vh;
+  background:#f5f1ea;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* LOGOUT CARD */
+.logout-box{
+  background:#fff;
+  padding:40px;
+  width:420px;
+  text-align:center;
+  border-radius:10px;
+  border:3px solid #c9a24d;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.logo{
+  font-size:26px;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+.logout-box h2{
+  margin:15px 0;
+}
+
+.logout-box p{
+  color:#555;
+  margin-bottom:25px;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:15px;
+  margin:5px;
+}
+.confirm{
+  background:#8b0000;
+  color:#fff;
+}
+.cancel{
+  background:#1c1a17;
+  color:#fff;
+}
+.btn:hover{ opacity:0.85; }
+.navbar-brand img {
+  width: 200px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="logout-box">
+  <a class="navbar-brand" href="index.html"> <img src="img/vintage-trans-logo.png" alt="logo"> </a>
+  <h2>Are you sure you want to logout?</h2>
+  <p>Your session will be ended and you’ll need to sign in again.</p>
+
+  <!-- CONFIRM LOGOUT -->
+  <a href="login.html" class="btn confirm">Yes, Logout</a>
+
+  <!-- CANCEL -->
+  <a href="dashboard.html" class="btn cancel">Cancel</a>
+</div>
+
+</body>
+</html>

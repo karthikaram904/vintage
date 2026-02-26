@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vintage Crown | Orders</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.png">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Georgia", serif;
+}
+body{ background:#f5f1ea; }
+.dashboard{ display:flex; min-height:100vh; }
+
+/* SIDEBAR */
+.sidebar{
+  width:250px;
+  background:#1c1a17;
+  color:#fff;
+  padding:30px 20px;
+}
+.logo{ text-align:center; margin-bottom:30px; letter-spacing:2px; }
+.menu li{
+  list-style:none;
+  padding:12px;
+  margin-bottom:8px;
+  border-radius:5px;
+  cursor:pointer;
+}
+.menu li:hover,.menu .active{
+  background:#c9a24d;
+  color:#000;
+}
+.logout{ margin-top:30px; background:#8b0000; }
+
+/* MAIN */
+.main{ flex:1; padding:30px; }
+
+/* TOPBAR */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.filter select{
+  padding:8px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+/* TABLE */
+.orders{
+  margin-top:30px;
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
+  border:2px solid #d4b36b;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th,td{
+  padding:12px;
+  text-align:left;
+  border-bottom:1px solid #ddd;
+}
+th{ background:#f0e6d2; }
+
+.status{
+  padding:4px 10px;
+  border-radius:12px;
+  font-size:12px;
+  color:#fff;
+}
+.completed{ background:green; }
+.pending{ background:orange; }
+.cancelled{ background:#8b0000; }
+
+.btn{
+  padding:6px 12px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  background:#c9a24d;
+  font-weight:bold;
+}
+.sidebar li a {
+  color: #fff;
+}
+.navbar-brand img {
+  width: 200px;
+}
+/* ===== Responsive Fix ===== */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .menu li {
+    text-align: center;
+  }
+
+  .tables {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .topbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .card p {
+    font-size: 20px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .navbar-brand img {
+    width: 150px;
+  }
+}
+@media (max-width: 1024px) {
+
+  .table-box {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-box table {
+    min-width: 700px;
+    border-collapse: collapse;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <a class="navbar-brand" href="index.html"> <img src="img/vin-logo.png" alt="logo"> </a>
+
+    <ul class="menu">
+      <li><a href="dashboard.html">📊 Dashboard</a></li>
+      <li><a href="my-products.html">🛍 My Products</a></li>
+      <li class="active"><a href="orders.html">📦 Orders</a></li>
+      <li><a href="earnings.html">💰 Earnings</a></li>
+      <li><a href="my-bid.html">🔨 My Bids</a></li>
+      <li><a href="wishlist.html">⭐ Wishlist</a></li>
+      <li><a href="offers.html">⚙ Offers</a></li>
+      <li class="logout"><a href="logout.html">🚪 Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h1>Orders</h1>
+      <div class="filter">
+        <select>
+          <option>All Orders</option>
+          <option>Completed</option>
+          <option>Pending</option>
+          <option>Cancelled</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ORDERS TABLE -->
+    <section class="orders">
+      <div class="table-box">
+ <div class="table-scroll">
+      <table>
+        <tr>
+          <th>Order ID</th>
+          <th>Product</th>
+          <th>Buyer</th>
+          <th>Price</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+
+        <tr>
+          <td>#VC1021</td>
+          <td>Antique Wall Clock</td>
+          <td>Rahul</td>
+          <td>₹12,000</td>
+          <td><span class="status completed">Completed</span></td>
+          <td><button class="btn">View</button></td>
+        </tr>
+
+        <tr>
+          <td>#VC1022</td>
+          <td>Vintage Camera</td>
+          <td>Anita</td>
+          <td>₹18,500</td>
+          <td><span class="status pending">Pending</span></td>
+          <td><button class="btn">Process</button></td>
+        </tr>
+
+        <tr>
+          <td>#VC1023</td>
+          <td>Old Royal Chair</td>
+          <td>Collector X</td>
+          <td>₹25,000</td>
+          <td><span class="status cancelled">Cancelled</span></td>
+          <td><button class="btn">Details</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

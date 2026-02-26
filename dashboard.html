@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vintage Crown | Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<style type="text/css">
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Georgia", serif;
+}
+
+body {
+  background: #f5f1ea;
+}
+
+/* Layout */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #1c1a17;
+  color: #fff;
+  padding: 30px 20px;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.menu li {
+  list-style: none;
+  padding: 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.menu li:hover,
+.menu .active {
+  background: #c9a24d;
+  color: #000;
+}
+
+.logout {
+  margin-top: 30px;
+  background: #8b0000;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #d4b36b;
+}
+
+.card p {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+/* Tables */
+.tables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.table-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.active {
+  color: green;
+}
+
+.sold {
+  color: red;
+}
+
+.pending {
+  color: orange;
+}
+.sidebar li a {
+  color: #fff;
+}
+.navbar-brand img {
+  width: 200px;
+}
+/* ===== Responsive Fix ===== */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .menu li {
+    text-align: center;
+  }
+
+  .tables {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .topbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .card p {
+    font-size: 20px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .navbar-brand img {
+    width: 150px;
+  }
+}
+/* ===== Table scroll for mobile & tablet ===== */
+@media (max-width: 1024px) {
+
+  .table-box {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-box table {
+    min-width: 700px;
+    border-collapse: collapse;
+  }
+
+}
+.table-box th
+{
+  text-align: left;
+}
+.quick-actions {
+  margin-top: 40px;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.actions-grid button {
+  padding: 15px;
+  background: #c9a24d;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.actions-grid button:hover {
+  background: #a8842e;
+  color: #fff;
+}
+.performance {
+  margin-top: 40px;
+}
+
+.performance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.perf-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #d4b36b;
+}
+.activity {
+  margin-top: 40px;
+}
+
+.activity-box {
+  background: #fff;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #c9a24d;
+  display: flex;
+  justify-content: space-between;
+}
+
+</style>
+<body>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <a class="navbar-brand" href="index.html"> <img src="img/vin-logo.png" alt="logo"> </a>
+    
+
+    <ul class="menu">
+      <li class="active"><a href="dashboard.html">📊 Dashboard</a></li>
+      <li><a href="my-products.html">🛍 My Products</a></li>
+      <li><a href="orders.html">📦 Orders</a></li>
+      <li><a href="earnings.html">💰 Earnings</a></li>
+      <li><a href="my-bid.html">🔨 My Bids</a></li>
+      <li><a href="wishlist.html">⭐ Wishlist</a></li>
+      <li><a href="offers.html">⚙ Offers</a></li>
+      <li class="logout"><a href="logout.html">🚪 Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Top Bar -->
+    <div class="topbar">
+      <h1>Dashboard</h1>
+      <div class="user">
+        <img src="images/user.png" alt="">
+        <span>Collector / Seller</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div class="card">
+        <h3>Active Listings</h3>
+        <p>18</p>
+      </div>
+      <div class="card">
+        <h3>My Bids</h3>
+        <p>6</p>
+      </div>
+      <div class="card">
+        <h3>Wishlist Items</h3>
+        <p>12</p>
+      </div>
+      <div class="card">
+        <h3>Earnings</h3>
+        <p>₹45,600</p>
+      </div>
+    </section>
+
+    <!-- Tables -->
+    <section class="tables">
+
+      <!-- Seller Section -->
+      <div class="table-box">
+  <h2>My Vintage Products</h2>
+
+  <div class="table-scroll">
+        <table>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>Antique Wall Clock</td>
+            <td>₹12,000</td>
+            <td class="active">Active</td>
+          </tr>
+          <tr>
+            <td>Vintage Camera</td>
+            <td>₹18,500</td>
+            <td class="sold">Sold</td>
+          </tr>
+        </table>
+      </div>
+      </div>
+
+      <!-- Buyer Section -->
+      <div class="table-box">
+  <h2>My Vintage Products</h2>
+
+  <div class="table-scroll"> 
+        <table>
+          <tr>
+            <th>Item</th>
+            <th>Bid Amount</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>Old Radio</td>
+            <td>₹7,200</td>
+            <td class="active">Leading</td>
+          </tr>
+          <tr>
+            <td>Royal Chair</td>
+            <td>₹15,000</td>
+            <td class="pending">Outbid</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    </section>
+    <section class="activity">
+  <h2>Recent Activity</h2>
+
+  <div class="activity-box">
+    <p>🛍 You listed <strong>Vintage Gramophone</strong></p>
+    <span>2 hours ago</span>
+  </div>
+
+  <div class="activity-box">
+    <p>💰 You received ₹8,000 for <strong>Old Compass</strong></p>
+    <span>Yesterday</span>
+  </div>
+
+  <div class="activity-box">
+    <p>🔨 You placed a bid on <strong>Classic Painting</strong></p>
+    <span>2 days ago</span>
+  </div>
+</section>
+<section class="performance">
+  <h2>Performance Overview</h2>
+
+  <div class="performance-grid">
+    <div class="perf-card">
+      <h4>Total Sales</h4>
+      <p>₹1,25,000</p>
+    </div>
+
+    <div class="perf-card">
+      <h4>Total Orders</h4>
+      <p>42</p>
+    </div>
+
+    <div class="perf-card">
+      <h4>Conversion Rate</h4>
+      <p>68%</p>
+    </div>
+  </div>
+</section>
+<section class="quick-actions">
+  <h2>Quick Actions</h2>
+
+  <div class="actions-grid">
+    <button>Add New Product</button>
+    <button>View Orders</button>
+    <button>Manage Bids</button>
+    <button>Withdraw Earnings</button>
+  </div>
+</section>
+
+  </main>
+</div>
+
+</body>
+</html>

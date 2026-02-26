@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vintage Crown | My Products</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.png">
+
+<style>
+/* ---------- GLOBAL ---------- */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Georgia", serif;
+}
+body{
+  background:#f5f1ea;
+}
+.dashboard{
+  display:flex;
+  min-height:100vh;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar{
+  width:250px;
+  background:#1c1a17;
+  color:#fff;
+  padding:30px 20px;
+}
+.logo{
+  text-align:center;
+  margin-bottom:30px;
+  letter-spacing:2px;
+}
+.menu li{
+  list-style:none;
+  padding:12px;
+  margin-bottom:8px;
+  border-radius:5px;
+  cursor:pointer;
+}
+.menu li:hover,
+.menu .active{
+  background:#c9a24d;
+  color:#000;
+}
+.logout{
+  margin-top:30px;
+  background:#8b0000;
+}
+
+/* ---------- MAIN ---------- */
+.main{
+  flex:1;
+  padding:30px;
+}
+
+/* ---------- TOPBAR ---------- */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.user{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.user img{
+  width:40px;
+  border-radius:50%;
+}
+
+/* ---------- BUTTON ---------- */
+.btn{
+  background:#c9a24d;
+  color:#000;
+  border:none;
+  padding:10px 18px;
+  border-radius:5px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* ---------- PRODUCT GRID ---------- */
+.products{
+  margin-top:30px;
+}
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+.product-card{
+  background:#fff;
+  border-radius:8px;
+  padding:15px;
+  border:2px solid #d4b36b;
+  position:relative;
+}
+.product-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:5px;
+}
+.product-card h3{
+  margin:10px 0 5px;
+}
+.price{
+  color:#8b0000;
+  font-weight:bold;
+}
+.status{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#1c1a17;
+  color:#fff;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:3px;
+}
+.actions{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+}
+.actions button{
+  flex:1;
+  margin:3px;
+  padding:8px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+}
+.edit{ background:#2f7d32; color:#fff; }
+.delete{ background:#8b0000; color:#fff; }
+
+/* ---------- MODAL ---------- */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  justify-content:center;
+  align-items:center;
+}
+.modal-content{
+  background:#fff;
+  padding:25px;
+  width:320px;
+  border-radius:8px;
+}
+.modal-content h3{
+  margin-bottom:15px;
+}
+.modal-content input{
+  width:100%;
+  padding:8px;
+  margin-bottom:10px;
+}
+.close{
+  background:#8b0000;
+  color:#fff;
+  width:100%;
+  padding:8px;
+  border:none;
+}
+.sidebar li a {
+  color: #fff;
+}
+.navbar-brand img {
+  width: 200px;
+}
+/* ===== Responsive Fix ===== */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .menu li {
+    text-align: center;
+  }
+
+  .tables {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .topbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .card p {
+    font-size: 20px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .navbar-brand img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .table-box {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-box table {
+    min-width: 700px;
+    border-collapse: collapse;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <a class="navbar-brand" href="index.html"> <img src="img/vin-logo.png" alt="logo"> </a>
+
+    <ul class="menu">
+      <li><a href="dashboard.html">📊 Dashboard</a></li>
+      <li class="active"><a href="my-products.html">🛍 My Products</a></li>
+      <li><a href="orders.html">📦 Orders</a></li>
+      <li><a href="earnings.html">💰 Earnings</a></li>
+      <li><a href="my-bid.html">🔨 My Bids</a></li>
+      <li><a href="wishlist.html">⭐ Wishlist</a></li>
+      <li><a href="offers.html">⚙ Offers</a></li>
+      <li class="logout"><a href="logout.html">🚪 Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h1>My Products</h1>
+      <button class="btn" onclick="openModal()">+ Add Product</button>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section class="products">
+      <div class="product-grid" id="productGrid">
+
+        <div class="product-card">
+          <span class="status">Active</span>
+          <img src="img/product/product8.png">
+          <h3>Antique Radio</h3>
+          <p class="price">₹12,000</p>
+          <div class="actions">
+            <button class="edit">Edit</button>
+            <button class="delete" onclick="deleteCard(this)">Delete</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <span class="status">Sold</span>
+          <img src="img/product/product5.png">
+          <h3>Vintage Radio</h3>
+          <p class="price">₹18,500</p>
+          <div class="actions">
+            <button class="edit">Edit</button>
+            <button class="delete" onclick="deleteCard(this)">Delete</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Add New Product</h3>
+    <input type="text" placeholder="Product Name">
+    <input type="text" placeholder="Price">
+    <button class="btn">Save</button>
+    <button class="close" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+function openModal(){
+  document.getElementById("modal").style.display="flex";
+}
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+function deleteCard(btn){
+  btn.closest(".product-card").remove();
+}
+</script>
+
+</body>
+</html>
