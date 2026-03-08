@@ -5336,7 +5336,8 @@ ul {
   /* line 1884, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
   .login_part .login_part_text, .login_part .login_part_form {
     padding: 20px;
-    height: 300px;
+    margin-top: 40px;
+    position: relative;
   }
 }
 
